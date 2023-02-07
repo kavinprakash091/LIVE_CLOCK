@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clock-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.clock {
+  width: 20rem;
+  height: 20rem;
+  position: relative;
+  padding: 1rem;
+  border: 7px solid #282828;
+  box-shadow: -4px -4px 10px rgba(67, 67, 67, 0.5),
+    inset 4px 4px 10px rgba(0, 0, 0, 0.5),
+    inset -4px -4px 10px rgba(67, 67, 67, 0.5), 4px 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  margin: 50px auto;
+}
+
+.clock-face-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+.clock-face-container::after {
+  transform: rotate(90deg);
+}
+
+.clock-face-container::after,
+.clock-face-container::before,
+.clock-face-container .mark {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  background: black;
+  z-index: 0;
+  left: 49%;
+}
+
+.clock-face-container .mark {
+  background: black;
+  width: 2px;
+}
+
+.clock-face-container .mark.mark-one {
+  transform: rotate(30deg);
+}
+
+.clock-face-container .mark.mark-two {
+  transform: rotate(60deg);
+}
+
+.clock-face-container .mark.mark-three {
+  transform: rotate(120deg);
+}
+
+.clock-face-container .mark.mark-four {
+  transform: rotate(150deg);
+}
+
+.clock-inner-container {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background: white;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  z-index: 1;
+}
+
+.clock-inner-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 18px;
+  margin-left: -9px;
+  margin-top: -6px;
+  background: black;
+  z-index: 11;
+}
+
+.hand {
+  width: 50%;
+  right: 50%;
+  height: 6px;
+  background: red;
+  position: absolute;
+  top: 50%;
+  border-radius: 3px;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.hand.hour-hand {
+  width: 32%;
+  z-index: 3;
+}
+
+.hand.min-hand {
+  height: 3px;
+  z-index: 10;
+  width: 42%;
+}
+
+.hand.second-hand {
+  background: skyblue;
+  width: 45%;
+  height: 2px;
+  z-index: 10;
+}
